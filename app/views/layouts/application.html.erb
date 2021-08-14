@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>STIDeviseNew</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%= yield %>
+    <nav>
+    Navigation
+    <% if student_signed_in? %>
+        <%= link_to 'Log out', destroy_student_session_path, method: :delete %>
+    <% end %>
+    <% if guide_signed_in? %>
+        <%= link_to 'Log out', destroy_guide_session_path, method: :delete %>
+    <% end %>
+</nav>
+  </body>
+</html>
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
